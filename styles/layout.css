@@ -1,0 +1,111 @@
+.topbar {
+  background: var(--c-bg);
+  border-bottom: 1px solid color-mix(in srgb, var(--c-text) 12%, transparent);
+}
+
+.topbar__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--s-16);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--s-16);
+  align-items: center;
+}
+
+.topbar__left,
+.topbar__right {
+  display: flex;
+  align-items: center;
+}
+
+.topbar__right {
+  justify-content: flex-end;
+}
+
+.brand__name {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.progress {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s-8);
+  padding: var(--s-8) var(--s-16);
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--c-text) 12%, transparent);
+}
+
+.progress__label {
+  color: color-mix(in srgb, var(--c-text) 70%, transparent);
+}
+
+.progress__value {
+  font-weight: 600;
+}
+
+.page {
+  min-height: 100%;
+}
+
+.context__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--s-64) var(--s-16) var(--s-40);
+}
+
+.workspace__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--s-16) var(--s-64);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: var(--s-24);
+  align-items: start;
+}
+
+.proof {
+  border-top: 1px solid color-mix(in srgb, var(--c-text) 12%, transparent);
+  background: var(--c-bg);
+}
+
+.proof__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--s-24) var(--s-16);
+  display: grid;
+  gap: var(--s-16);
+}
+
+.proof__title {
+  font-weight: 600;
+  color: color-mix(in srgb, var(--c-text) 70%, transparent);
+}
+
+@media (max-width: 920px) {
+  .topbar__inner {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .topbar__center {
+    justify-self: start;
+  }
+
+  .topbar__right {
+    justify-content: flex-start;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+  }
+
+  .context__inner {
+    padding: var(--s-40) var(--s-16) var(--s-24);
+  }
+}
+

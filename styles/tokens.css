@@ -1,0 +1,29 @@
+:root {
+  /* Color system (kept intentionally small) */
+  --c-bg: #f7f6f3;
+  --c-text: #111111;
+  --c-accent: #8b0000;
+  --c-success: #2f5d3a; /* muted green */
+
+  /* Typography */
+  --font-serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --text-size: 17px;
+  --line-height: 1.7;
+  --measure: 720px;
+
+  /* Spacing scale (only these values) */
+  --s-8: 8px;
+  --s-16: 16px;
+  --s-24: 24px;
+  --s-40: 40px;
+  --s-64: 64px;
+
+  /* Shape */
+  --radius: 12px;
+
+  /* Motion */
+  --t-fast: 180ms;
+  --ease: ease-in-out;
+}
+
