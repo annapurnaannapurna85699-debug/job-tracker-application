@@ -41,16 +41,39 @@ function setButtonFeedback(btn, nextLabel) {
 }
 
 const routes = {
-  "/": { kind: "root" },
-  "/dashboard": { kind: "placeholder", title: "Dashboard" },
-  "/saved": { kind: "placeholder", title: "Saved" },
-  "/digest": { kind: "placeholder", title: "Digest" },
-  "/settings": { kind: "placeholder", title: "Settings" },
-  "/proof": { kind: "placeholder", title: "Proof" },
+  "/": {
+    kind: "landing",
+  },
+  "/dashboard": {
+    kind: "page",
+    title: "Dashboard",
+    body: "No jobs yet. In the next step, you will load a realistic dataset.",
+  },
+  "/saved": {
+    kind: "page",
+    title: "Saved",
+    body: "No saved jobs yet. This space will hold roles you explicitly save once data is connected.",
+  },
+  "/digest": {
+    kind: "page",
+    title: "Digest",
+    body: "No digest generated yet. A daily summary will appear here when the feature is wired.",
+  },
+  "/settings": {
+    kind: "settings",
+    title: "Settings",
+    body: "Preference controls for the Job Notification Tracker. These fields are placeholders only; nothing is saved yet.",
+  },
+  "/proof": {
+    kind: "page",
+    title: "Proof",
+    body: "Placeholder page for artifact collection. In a later step, this will gather evidence that the system is working.",
+  },
 };
 
 let currentPath = null;
 let rootSection = null;
+let settingsSection = null;
 let placeholderSection = null;
 let placeholderTitle = null;
 let placeholderSubtext = null;
@@ -59,9 +82,13 @@ let navLinks = [];
 let navToggle = null;
 
 function getRouteForPath(path) {
-  return routes[path] || {
-    kind: "placeholder",
+  const match = routes[path];
+  if (match) return match;
+
+  return {
+    kind: "page",
     title: "Page Not Found",
+    body: "The page you are looking for does not exist.",
     notFound: true,
   };
 }
@@ -69,21 +96,21 @@ function getRouteForPath(path) {
 function renderRoute(path, route) {
   currentPath = path;
 
-  if (rootSection && placeholderSection) {
-    if (route.kind === "root") {
-      rootSection.hidden = false;
-      placeholderSection.hidden = true;
-    } else {
-      rootSection.hidden = true;
-      placeholderSection.hidden = false;
-      if (placeholderTitle) {
-        placeholderTitle.textContent = route.title;
-      }
-      if (placeholderSubtext) {
-        placeholderSubtext.textContent = route.notFound
-          ? "The page you are looking for does not exist."
-          : "This section will be built in the next step.";
-      }
+  if (rootSection) rootSection.hidden = true;
+  if (settingsSection) settingsSection.hidden = true;
+  if (placeholderSection) placeholderSection.hidden = true;
+
+  if (route.kind === "landing" && rootSection) {
+    rootSection.hidden = false;
+  } else if (route.kind === "settings" && settingsSection) {
+    settingsSection.hidden = false;
+  } else if (placeholderSection) {
+    placeholderSection.hidden = false;
+    if (placeholderTitle) {
+      placeholderTitle.textContent = route.title || "";
+    }
+    if (placeholderSubtext) {
+      placeholderSubtext.textContent = route.body || "";
     }
   }
 
@@ -123,6 +150,7 @@ function navigate(path, options) {
 
 function initRouter() {
   rootSection = document.getElementById("route-root");
+  settingsSection = document.getElementById("settings-root");
   placeholderSection = document.getElementById("route-placeholder");
   placeholderTitle = document.getElementById("routeTitle");
   placeholderSubtext = document.getElementById("routeSubtext");

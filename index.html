@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Job Notification App — Design System</title>
+    <title>Job Notification Tracker — Premium SaaS</title>
     <link rel="stylesheet" href="./styles/tokens.css" />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/layout.css" />
@@ -17,7 +17,7 @@
         <div class="topbar__left">
           <div class="brand">
             <a class="brand__name" href="/" data-nav-link data-route="/">
-              Job Notification App
+              Job Notification Tracker
             </a>
           </div>
         </div>
@@ -58,9 +58,9 @@
     <main id="main" class="page" role="main">
       <section class="context">
         <div class="context__inner">
-          <h1 class="h1">Design system foundation</h1>
+          <h1 class="h1">Stop Missing The Right Jobs.</h1>
           <p class="subtext">
-            A restrained, premium UI kit: tokens, layout primitives, and core components—no product features.
+            Precision-matched job discovery delivered daily at 9AM.
           </p>
         </div>
       </section>
@@ -72,92 +72,75 @@
               <div class="stack stack--40" id="route-root">
                 <article class="card">
                   <header class="card__header">
-                    <h2 class="h2">Buttons</h2>
+                    <h2 class="h2">Job Notification Tracker</h2>
                     <p class="prose">
-                      Primary actions are solid accent. Secondary actions are outlined. Radius and transitions are
-                      consistent.
+                      A calm workspace for tracking the roles that genuinely fit. Configure it once; we’ll build the
+                      rest next.
                     </p>
                   </header>
 
                   <div class="card__content">
-                    <div class="row">
-                      <button class="btn btn--primary" type="button">Primary</button>
-                      <button class="btn btn--secondary" type="button">Secondary</button>
-                      <button class="btn btn--ghost" type="button">Ghost</button>
-                      <button class="btn btn--primary" type="button" disabled>Disabled</button>
-                    </div>
+                    <button class="btn btn--primary" type="button" data-nav-link data-route="/settings">
+                      Start Tracking
+                    </button>
                   </div>
                 </article>
+              </div>
 
+              <div class="stack stack--40" id="settings-root" hidden>
                 <article class="card">
                   <header class="card__header">
-                    <h2 class="h2">Inputs</h2>
+                    <h2 class="h2">Settings</h2>
                     <p class="prose">
-                      Inputs keep a clean border and a confident focus ring. Labels and helper text follow a fixed
-                      rhythm.
+                      Preference controls for the Job Notification Tracker. These fields are placeholders only; nothing
+                      is saved yet.
                     </p>
                   </header>
 
                   <div class="card__content">
                     <div class="form-grid">
                       <label class="field">
-                        <span class="field__label">Email</span>
-                        <input class="input" type="email" placeholder="name@company.com" />
-                        <span class="field__help">We’ll only use this for notification delivery.</span>
+                        <span class="field__label">Role keywords</span>
+                        <input class="input" type="text" placeholder="e.g. Product Manager, Data Analyst" />
+                        <span class="field__help">We will interpret these titles in a later step.</span>
                       </label>
 
                       <label class="field">
-                        <span class="field__label">Keyword</span>
-                        <input class="input" type="text" placeholder="Product Manager" />
-                        <span class="field__help">Use a single role or title—keep it precise.</span>
+                        <span class="field__label">Preferred locations</span>
+                        <input class="input" type="text" placeholder="e.g. Berlin, Remote within EU" />
+                        <span class="field__help">City, region, or time zone. No filtering is applied yet.</span>
                       </label>
-                    </div>
-                  </div>
-                </article>
 
-                <article class="card">
-                  <header class="card__header">
-                    <h2 class="h2">Badges and states</h2>
-                    <p class="prose">
-                      Status is communicated with clear labels and subtle structure, not decoration.
-                    </p>
-                  </header>
+                      <label class="field">
+                        <span class="field__label">Mode</span>
+                        <select class="input">
+                          <option>Remote</option>
+                          <option>Hybrid</option>
+                          <option>Onsite</option>
+                        </select>
+                        <span class="field__help">Choose how you prefer to work. This will guide matching later.</span>
+                      </label>
 
-                  <div class="card__content">
-                    <div class="row">
-                      <span class="badge">Neutral</span>
-                      <span class="badge badge--accent">Accent</span>
-                      <span class="badge badge--success">Success</span>
-                      <span class="badge badge--warning">Warning</span>
-                    </div>
-
-                    <div class="stack stack--16">
-                      <div class="state state--empty" role="note">
-                        <div class="state__title">Nothing to show yet</div>
-                        <div class="state__body">
-                          This area is intentionally blank until it’s populated. Use the controls above to produce a
-                          preview.
-                        </div>
-                      </div>
-
-                      <div class="state state--error" role="alert">
-                        <div class="state__title">We couldn’t render this preview</div>
-                        <div class="state__body">
-                          Try reloading the page. If it continues, check whether your browser is blocking local file
-                          access for scripts.
-                        </div>
-                      </div>
+                      <label class="field">
+                        <span class="field__label">Experience level</span>
+                        <select class="input">
+                          <option>Entry level</option>
+                          <option>Mid level</option>
+                          <option>Senior</option>
+                          <option>Leadership</option>
+                        </select>
+                        <span class="field__help">We’ll tune results by level in a future iteration.</span>
+                      </label>
                     </div>
                   </div>
                 </article>
               </div>
+
               <div class="stack stack--40" id="route-placeholder" hidden>
                 <article class="card">
                   <header class="card__header">
                     <h2 class="h1" id="routeTitle"></h2>
-                    <p class="subtext" id="routeSubtext">
-                      This section will be built in the next step.
-                    </p>
+                    <p class="subtext" id="routeSubtext"></p>
                   </header>
                 </article>
               </div>
@@ -166,23 +149,23 @@
             <aside class="secondary" aria-label="Secondary panel">
               <div class="panel">
                 <div class="panel__section">
-                  <h2 class="h2">Step explanation</h2>
+                  <h2 class="h2">Workspace notes</h2>
                   <p class="prose">
-                    The secondary panel is reserved for guidance and tooling: a short explanation, a copyable prompt,
-                    and consistently styled actions.
+                    This panel is reserved for quiet guidance and supporting content. It stays minimal until the core
+                    experience is wired.
                   </p>
                 </div>
 
                 <div class="panel__section">
-                  <div class="prompt">
-                    <div class="prompt__header">
-                      <div class="prompt__title">Copyable prompt</div>
-                      <button class="btn btn--secondary btn--sm" type="button" data-copy="#promptText">
-                        Copy
-                      </button>
+                    <div class="prompt">
+                      <div class="prompt__header">
+                        <div class="prompt__title">Internal notes</div>
+                        <button class="btn btn--secondary btn--sm" type="button" data-copy="#promptText">
+                          Copy
+                        </button>
+                      </div>
+                      <pre class="prompt__box" id="promptText" tabindex="0">Job Notification Tracker is currently in skeleton mode: navigation, pages, and placeholders only. No data, no matching logic, and no persistence are active yet.</pre>
                     </div>
-                    <pre class="prompt__box" id="promptText" tabindex="0">Build a calm, premium design system foundation for a Job Notification App. No product features yet. Follow strict spacing and typography tokens.</pre>
-                  </div>
                 </div>
 
                 <div class="panel__section">
